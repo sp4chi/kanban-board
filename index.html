@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5d07db42e7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Toolbox container -->
+    <div class="toolbox-cont">
+        <!-- Priority box containers -->
+        <div class="toolbox-priority-cont">
+            <div class="lightpink color"></div>
+            <div class="lightgreen color"></div>
+            <div class="lightblue color"></div>
+            <div class="black color"></div>
+        </div>
+        <!-- Action buttons container -->
+        <div class="action-btn-cont">
+            <div class="add-btn">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="remove-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Task ticket -->
+    <div class="main-cont">
+
+        <div class="ticket-cont">
+            <div class="ticket-color"></div>
+            <div class="ticket-id">99999</div>
+            <div class="task-area">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, minima. Quasi
+                provident adipisci unde sed facilis esse suscipit inventore itaque? Veritatis alias asperiores incidunt
+                voluptate ea nihil magnam, modi magni!</div>
+        </div>
+    </div>
+    <!-- Modal Task Area -->
+
+    <div class="modal-cont hidden">
+        <textarea name="" id="" cols="30" rows="10" class="text-area-cont" placeholder="Enter text here..."></textarea>
+        <div class="priority-cards-cont">
+            <div class="lightpink priority-color active"></div>
+            <div class="lightgreen priority-color"></div>
+            <div class="lightblue priority-color"></div>
+            <div class="black priority-color active"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

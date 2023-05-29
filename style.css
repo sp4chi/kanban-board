@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.toolbox-cont {
+    height: 5rem;
+    background-color: #4b4b4b;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.toolbox-priority-cont {
+    height: 3.5rem;
+    width: 18rem;
+    border-radius: 7px;
+    background-color: #3d3d3d;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.color {
+    height: 1.5rem;
+    width: 3rem;
+    border-radius: 3px;
+}
+
+.color:hover {
+    border: 5px solid lightyellow;
+}
+
+.lightpink {
+    background-color: lightpink;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.black {
+    background-color: black;
+}
+
+.action-btn-cont {
+    height: 3.5rem;
+    width: 8rem;
+    border-radius: 7px;
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.action-btn-cont div {
+    color: bisque;
+    height: 100%;
+    width: 50%;
+    border-radius: 7px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn-cont div:hover {
+    background-color: greenyellow;
+}
+
+
+.modal-cont {
+    height: 50vh;
+    width: 45vw;
+    background-color: lightsalmon;
+    display: flex;
+    position: absolute;
+    top: 27%;
+    left: 27%;
+
+}
+
+.text-area-cont {
+    width: 75%;
+    padding: 10%;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: bisque;
+    font-size: 2rem;
+
+
+}
+
+.priority-cards-cont {
+    background-color: #4b4b4b;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.priority-color {
+    height: 4rem;
+    width: 6rem;
+    border-radius: 3px;
+}
+
+
+.active:hover {
+    border: 5px solid lightyellow;
+}
+
+.main-cont {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.ticket-cont {
+    height: 13rem;
+    width: 15rem;
+    background-color: lightgray;
+    border-radius: 7px;
+}
+
+.ticket-color {
+    background-color: darkcyan;
+    height: 15%;
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+}
+
+.ticket-id {
+    background-color: springgreen;
+    height: 15%;
+    width: 100%;
+
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.task-area {
+    height: 70%;
+    width: 100%;
+    padding: 0.5em 1em 0.5em 1em;
+    background-color: rgb(216, 248, 100);
+    border-radius: 0 0 7px 7px;
+}
+
+.hidden {
+    display: none;
+}
