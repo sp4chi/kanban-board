@@ -124,6 +124,7 @@ body {
 
 .priority-cards-cont {
     background-color: #4b4b4b;
+    padding: 0.5em;
     width: 25%;
     border-radius: 0 10px 10px 0;
     display: flex;
@@ -134,8 +135,8 @@ body {
 }
 
 .priority-color {
-    height: 4rem;
-    width: 6rem;
+    height: 22%;
+    width: 95%;
     border-radius: 3px;
 }
 
@@ -164,6 +165,7 @@ body {
     width: 100%;
     border-radius: 7px 7px 0 0;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .ticket-id {
@@ -171,6 +173,7 @@ body {
     height: 15%;
     width: 100%;
     padding: 0.5em 1em 0.5em 1em;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .task-area {
@@ -179,9 +182,13 @@ body {
     padding: 0.5em 1em 0.5em 1em;
     background-color: #FFD95A;
     border-radius: 0 0 7px 7px;
-
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .hidden {
     display: none;
+}
+
+.delete {
+    color: red;
 }
