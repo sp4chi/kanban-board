@@ -38,18 +38,39 @@ body {
 
 .lightpink {
     background-color: lightpink;
+
+}
+
+.lightpink-border {
+    border: 5px solid lightpink;
 }
 
 .lightgreen {
     background-color: lightgreen;
 }
 
+.lightgreen-border {
+    border: 5px solid lightgreen;
+}
+
 .lightblue {
     background-color: lightblue;
 }
 
-.black {
-    background-color: black;
+.lightblue-border {
+    border: 5px solid lightblue;
+}
+
+.beige {
+    background-color: #C69749;
+}
+
+.beige-border {
+    border: 5px solid #C69749;
+}
+
+.lightred-border {
+    border: 5px solid lightcoral;
 }
 
 .action-btn-cont {
@@ -81,6 +102,7 @@ body {
 .modal-cont {
     height: 50vh;
     width: 45vw;
+    border-radius: 10px;
     background-color: lightsalmon;
     display: flex;
     position: absolute;
@@ -92,18 +114,18 @@ body {
 .text-area-cont {
     width: 75%;
     padding: 10%;
+    border-radius: 10px 0 0 10px;
     resize: none;
     border: none;
     outline: none;
     background-color: bisque;
     font-size: 2rem;
-
-
 }
 
 .priority-cards-cont {
     background-color: #4b4b4b;
     width: 25%;
+    border-radius: 0 10px 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,7 +139,7 @@ body {
 }
 
 
-.active:hover {
+.active {
     border: 5px solid lightyellow;
 }
 
@@ -132,22 +154,21 @@ body {
 .ticket-cont {
     height: 13rem;
     width: 15rem;
-    background-color: lightgray;
-    border-radius: 7px;
+    border-radius: 13px;
 }
 
 .ticket-color {
-    background-color: darkcyan;
+    padding: 0.5em 1em 0.5em 1em;
     height: 15%;
     width: 100%;
     border-radius: 7px 7px 0 0;
+    text-align: center;
 }
 
 .ticket-id {
-    background-color: springgreen;
+    background-color: #FFF7D4;
     height: 15%;
     width: 100%;
-
     padding: 0.5em 1em 0.5em 1em;
 }
 
@@ -155,8 +176,9 @@ body {
     height: 70%;
     width: 100%;
     padding: 0.5em 1em 0.5em 1em;
-    background-color: rgb(216, 248, 100);
+    background-color: #FFD95A;
     border-radius: 0 0 7px 7px;
+
 }
 
 .hidden {

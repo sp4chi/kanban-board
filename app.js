@@ -5,7 +5,13 @@ const removeBtn = document.querySelector('.remove-btn')
 const modal = document.querySelector('.modal-cont');
 const mainContainer = document.querySelector('.main-cont');
 const textArea = document.querySelector('.text-area-cont');
-const priorityColor = document.querySelectorAll('.priority-color');
+const priorityCards = document.querySelectorAll('.priority-color');
+const colors = document.querySelectorAll('.color');
+
+
+
+let selectedCard = 'lightred';
+
 
 
 
@@ -19,16 +25,27 @@ removeBtn.addEventListener('click', function () {
     mainContainer.classList.remove('hidden');
 });
 
+const priorityMessage = function () {
+    if (selectedCard === 'lightpink')
+        return 'Assigned';
+    else if (selectedCard === 'lightgreen')
+        return 'Working';
+    else if (selectedCard === 'lightblue')
+        return 'Complete';
+    else if (selectedCard === 'beige')
+        return 'Closed';
 
+}
 const createTicket = function () {
     const ticketContainer = document.createElement('div');
     ticketContainer.classList.add('ticket-cont');
-    ticketContainer.innerHTML = `<div class="ticket-color"></div>
-    <div class="ticket-id"></div>
-    <div class="task-area"></div>`;
-
+    ticketContainer.innerHTML = `<div class="ticket-color ${selectedCard} ">${priorityMessage()}</div>
+    <div class="ticket-id"><li>ID  ${shortid()}</li></div>
+    <div class="task-area">${textArea.value}</div>`;
+    ticketContainer.classList.add(`${selectedCard}-border`)
     mainContainer.appendChild(ticketContainer);
     textArea.value = '';
+
 
     modal.classList.add('hidden');
     mainContainer.classList.remove('hidden');
@@ -39,3 +56,23 @@ modal.addEventListener('keydown', function (e) {
         createTicket();
     }
 })
+
+//make priority-cards inactive when not clicked
+const makeInactive = function () {
+    priorityCards.forEach((card) => {
+        card.classList.remove('active');
+    })
+};
+
+//make priority-cards active on click
+priorityCards.forEach((card) => {
+    card.addEventListener('click', function () {
+        makeInactive();
+        card.classList.add('active');
+        selectedCard = card.classList[0];
+    })
+});
+
+
+
+
