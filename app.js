@@ -16,7 +16,15 @@ const settingDelete = function () {
 
 const unsettingDelete = function () {
     setDelete = false;
-    deleteBtn.classList.add('delete');
+    deleteBtn.classList.remove('delete');
+}
+
+const deleteCard = function () {
+    tickets.forEach((ticket) => {
+        ticket.addEventListener('click', function () {
+            ticket.remove();
+        });
+    });
 }
 
 
@@ -36,12 +44,12 @@ removeBtn.addEventListener('click', function () {
     if (setDelete === true) {
         alert('Delete button has been activated!');
         settingDelete();
+        deleteCard();
 
     } else {
         modal.classList.add('hidden');
         mainContainer.classList.remove('hidden');
         settingDelete();
-        console.log('else is hit');
     }
 });
 
@@ -103,7 +111,7 @@ modal.addEventListener('keydown', function (e) {
     if (e.getModifierState('Shift')) {
         createTicket();
         renderTickets();
-        settingDelete();
+        setDelete = true;
     }
 })
 
