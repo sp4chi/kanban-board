@@ -9,21 +9,69 @@ const priorityCardsModal = document.querySelectorAll('.priority-color');
 const priorityCardsToolbox = document.querySelectorAll('.color');
 const deleteBtn = document.querySelector('.remove-btn i');
 
+
+//FUNCTION - delete button activated
 const settingDelete = function () {
     setDelete = true;
     deleteBtn.classList.add('delete');
 }
 
+
+//FUNCTION - delete button deactivated
 const unsettingDelete = function () {
     setDelete = false;
     deleteBtn.classList.remove('delete');
 }
 
+//FUNCTION - remove tickets from dom
 const deleteCard = function () {
     tickets.forEach((ticket) => {
         ticket.addEventListener('click', function () {
             ticket.remove();
         });
+    });
+}
+
+//FUNCTION - make priority-cards inactive when not clicked
+const makeInactive = function () {
+    priorityCardsModal.forEach((card) => {
+        card.classList.remove('active');
+    })
+};
+
+//FUNCTION - set priority message 
+const priorityMessage = function () {
+    if (selectedCard === 'lightpink')
+        return 'Assigned';
+    else if (selectedCard === 'lightgreen')
+        return 'Working';
+    else if (selectedCard === 'lightblue')
+        return 'Complete';
+    else if (selectedCard === 'beige')
+        return 'Closed';
+}
+
+//FUNCTION - GENERATE NEW-TICKET 
+const createTicket = function () {
+
+    const ticketContainer = document.createElement('div');
+    ticketContainer.classList.add('ticket-cont');
+    ticketContainer.innerHTML = `<div class="ticket-color ${selectedCard} ">${priorityMessage()}</div>
+    <div class="ticket-id"><li>ID  ${shortid()}</li></div>
+    <div class="task-area">${textArea.value}</div>`;
+    ticketContainer.classList.add(`${selectedCard}-border`);
+    mainContainer.appendChild(ticketContainer);
+    tickets = document.querySelectorAll('.ticket-cont');
+    textArea.value = '';
+
+    modal.classList.add('hidden');
+    mainContainer.classList.remove('hidden');
+}
+
+//FUNCTION - SHOW-ALL TICKETS
+const renderTickets = function () {
+    tickets.forEach((ticket) => {
+        ticket.classList.remove('hidden');
     });
 }
 
@@ -53,12 +101,6 @@ removeBtn.addEventListener('click', function () {
     }
 });
 
-//make priority-cards inactive when not clicked
-const makeInactive = function () {
-    priorityCardsModal.forEach((card) => {
-        card.classList.remove('active');
-    })
-};
 
 //make priority-cards active on click
 priorityCardsModal.forEach((card) => {
@@ -69,42 +111,6 @@ priorityCardsModal.forEach((card) => {
     })
 });
 
-
-const priorityMessage = function () {
-    if (selectedCard === 'lightpink')
-        return 'Assigned';
-    else if (selectedCard === 'lightgreen')
-        return 'Working';
-    else if (selectedCard === 'lightblue')
-        return 'Complete';
-    else if (selectedCard === 'beige')
-        return 'Closed';
-
-}
-
-//GENERATE NEW-TICKET 
-const createTicket = function () {
-
-    const ticketContainer = document.createElement('div');
-    ticketContainer.classList.add('ticket-cont');
-    ticketContainer.innerHTML = `<div class="ticket-color ${selectedCard} ">${priorityMessage()}</div>
-    <div class="ticket-id"><li>ID  ${shortid()}</li></div>
-    <div class="task-area">${textArea.value}</div>`;
-    ticketContainer.classList.add(`${selectedCard}-border`);
-    mainContainer.appendChild(ticketContainer);
-    tickets = document.querySelectorAll('.ticket-cont');
-    textArea.value = '';
-
-    modal.classList.add('hidden');
-    mainContainer.classList.remove('hidden');
-}
-
-//SHOW-ALL TICKETS
-const renderTickets = function () {
-    tickets.forEach((ticket) => {
-        ticket.classList.remove('hidden');
-    });
-}
 
 //ON PRESSING SHIFT NEW CARD IS SAVED, GENERATED AND RENDERED
 modal.addEventListener('keydown', function (e) {
