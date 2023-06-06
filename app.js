@@ -9,26 +9,30 @@ const priorityCardsModal = document.querySelectorAll('.priority-color');
 const priorityCardsToolbox = document.querySelectorAll('.color');
 const deleteBtn = document.querySelector('.remove-btn i');
 
+let tickets;
+let selectedCard = 'lightred';
+let setDelete = false;
+
 
 //FUNCTION - delete button activated
 const settingDelete = function () {
-    setDelete = true;
+    alert('Delete button has been activated!');
     deleteBtn.classList.add('delete');
 }
 
 
 //FUNCTION - delete button deactivated
 const unsettingDelete = function () {
-    setDelete = false;
+    alert('Delete button has been deactivated!')
     deleteBtn.classList.remove('delete');
 }
 
 //FUNCTION - remove tickets from dom
-const deleteCard = function () {
-    tickets.forEach((ticket) => {
-        ticket.addEventListener('click', function () {
+const attachDeleteHandler = function (ticket) {
+    ticket.addEventListener('click', function () {
+        if (setDelete === true) {
             ticket.remove();
-        });
+        }
     });
 }
 
@@ -66,6 +70,8 @@ const createTicket = function () {
 
     modal.classList.add('hidden');
     mainContainer.classList.remove('hidden');
+
+    attachDeleteHandler(ticketContainer);
 }
 
 //FUNCTION - SHOW-ALL TICKETS
@@ -76,33 +82,32 @@ const renderTickets = function () {
 }
 
 
-let tickets;
-let selectedCard = 'lightred';
-let setDelete = false;
 
 //OPEN - modal CLOSE - tickets
 addBtn.addEventListener('click', function () {
     modal.classList.remove('hidden');
     mainContainer.classList.add('hidden');
-    unsettingDelete();
+    console.log(setDelete);
+    deleteBtn.classList.remove('delete');
 });
 
 //CLOSE - modal OPEN - tickets
 removeBtn.addEventListener('click', function () {
-    if (setDelete === true) {
-        alert('Delete button has been activated!');
-        settingDelete();
-        deleteCard();
+    setDelete = !setDelete;
+    console.log(setDelete);
 
-    } else {
-        modal.classList.add('hidden');
-        mainContainer.classList.remove('hidden');
+    if (setDelete === true) {
         settingDelete();
+    } else {
+        unsettingDelete();
     }
+
+    modal.classList.add('hidden');
+    mainContainer.classList.remove('hidden');
 });
 
 
-//make priority-cards active on click
+//MAKE PRIORITY-CARDS ACTIVE ON CLICK
 priorityCardsModal.forEach((card) => {
     card.addEventListener('click', function () {
         makeInactive();
@@ -117,11 +122,10 @@ modal.addEventListener('keydown', function (e) {
     if (e.getModifierState('Shift')) {
         createTicket();
         renderTickets();
-        setDelete = true;
     }
 })
 
-//filter tickets by color
+//FILTER TICKETS BY COLOR
 const filterTickets = function (filterCardsColor) {
 
     tickets.forEach((ticket) => {
